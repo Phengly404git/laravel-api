@@ -11,15 +11,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
 
-    Route::get('get-post', [PostController::class, 'index']);
+    Route::get('get-posts', [PostController::class, 'index']);
+    Route::get('get-one-post/{id}', [PostController::class, 'getOnePost']);
     Route::post('add-post', [PostController::class, 'store']);
     Route::get('edit-post/{id}', [PostController::class, 'edit']);
     Route::post('update-post/{id}', [PostController::class, 'update']);
     Route::post('delete-post/{id}', [PostController::class, 'delete']);
     Route::post('logout', [AuthController::class, 'logout']);
 });
-
-
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
